@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,20 +23,21 @@ public class EventoCorporativo {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotNull
 	private TipoEvento tipo;
 	
+	@NotNull
 	private LocalDate data;
 	
+	@NotNull
 	private Integer quantidade;
 	
+	@NotNull
 	private BigDecimal valor;
 	
-	//TODO: revisar tipo de dado
-	private String proporcao;
+	private double proporcao;
 	
 	@ManyToOne
-	private Ativo ativo;
+	private Ativo ativo; 
 	
-	@ManyToOne
-	private Movimentacao movimentacao;
 }
