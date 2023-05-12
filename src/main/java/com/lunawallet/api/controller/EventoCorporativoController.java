@@ -2,7 +2,7 @@ package com.lunawallet.api.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,22 +27,22 @@ public class EventoCorporativoController {
 
 	@Autowired
 	EventoCorporativoRepository eventoCorporativoRepository;
-	
+
 	@Autowired
 	EventoCorporativoService eventoCorporativoService;
-	
+
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
 	public List<EventoCorporativo> findAll() {
 		return this.eventoCorporativoRepository.findAll();
 	}
-	
+
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public EventoCorporativo store(@RequestBody @Valid EventoCorporativo eventoCorporativo) {
 		return this.eventoCorporativoService.store(eventoCorporativo);
 	}
-	
+
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public EventoCorporativo update(@RequestBody @Valid EventoCorporativo eventoCorporativo,
@@ -51,13 +51,13 @@ public class EventoCorporativoController {
 		BeanUtils.copyProperties(eventoCorporativo, eventoAtual);
 		return this.eventoCorporativoService.store(eventoAtual);
 	}
-	
+
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
 		EventoCorporativo eventoCorporativo = this.eventoCorporativoService.findOrFail(id);
 		this.eventoCorporativoService.delete(eventoCorporativo);
 	}
-	
-	
+
+
 }

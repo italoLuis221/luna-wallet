@@ -17,32 +17,32 @@ public class AtivoService {
 
 	@Autowired
 	private AtivoRepository ativoRepository;
-	
+
 	@Autowired
 	private SetorAtuacaoService setorAtuacaoService;
-	
+
 	@Autowired
 	private ClasseAtivoService classeAtivoService;
-	
+
 	public Ativo store(Ativo ativo) {
 		Optional<Ativo> optionalAtivo = this.ativoRepository.findByTicket(ativo.getTicket());
 		if(optionalAtivo.isPresent()) {
 			throw new EntidadeDuplicadaException(String.format("Já existe um ativo com o ticket %s cadastrado.", ativo.getTicket()));
 		}
-		
+
 		this.validateDependencies(ativo);
 		return this.ativoRepository.save(ativo);
 	}
-	
+
 	public void delete(Ativo ativo) {
 		this.ativoRepository.delete(ativo);
 	}
-	
+
 	public Ativo findOrFail(Long id) {
 		return this.ativoRepository.findById(id)
 				.orElseThrow(() -> new EntidadeNaoEncontradaException(String.format("Ativo de código %d não foi encontrado", id)));
 	}
-	
+
 	private void validateDependencies(Ativo ativo) {
 		if(ativo.getSetorAtuacao().getId() != null) {
 			SetorAtuacao setorAtuacao = this.setorAtuacaoService.findOrFail(ativo.getSetorAtuacao().getId());

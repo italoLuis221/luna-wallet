@@ -1,7 +1,9 @@
 package com.lunawallet.domain.repository;
 
 import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.lunawallet.domain.model.Ativo;
 
 

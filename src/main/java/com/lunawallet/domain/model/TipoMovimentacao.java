@@ -1,8 +1,8 @@
 package com.lunawallet.domain.model;
 
 public enum TipoMovimentacao {
-	APORTE, 
-	RETIRADA, 
-	COMPRA, 
+	APORTE,
+	RETIRADA,
+	COMPRA,
 	VENDA
 }

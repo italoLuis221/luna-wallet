@@ -1,22 +1,17 @@
 package com.lunawallet.domain.model;
 
 import java.time.LocalDate;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import org.hibernate.validator.constraints.br.CPF;
-
 import com.lunawallet.Groups;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -30,26 +25,29 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long id;
-	
+
 	@NotBlank
 	@Size(max = 100, min = 2)
 	private String nome;
-	
+
 	@NotBlank
 	@CPF
-	private String cpf; 
-	
+	private String cpf;
+
 	@NotNull
 	@Column(name="data_nascimento")
 	private LocalDate dataNascimento;
-	
+
 	@NotBlank
 	@Email
 	private String email;
-	
+
 	@NotBlank
-	@Size(min = 8, max = 30)
+
 	private String senha;
-	
+
+	public boolean isNovo() {
+		return getId() == null;
+	}
 
 }

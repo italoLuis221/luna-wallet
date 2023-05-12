@@ -7,7 +7,7 @@ public class UsuarioNaoEncontradoException extends EntidadeNaoEncontradaExceptio
 	public UsuarioNaoEncontradoException(String message) {
 		super(message);
 	}
-	
+
 	public UsuarioNaoEncontradoException(Long id) {
 	  this(String.format("Usuário de Código %d Não Encontrado", id));
 	}

@@ -10,10 +10,10 @@ import com.lunawallet.domain.repository.CarteiraRepository;
 
 @Service
 public class CarteiraService {
-	
+
 	@Autowired
 	private CarteiraRepository carteiraRepository;
-	
+
 	@Autowired
 	private UsuarioService usuarioService;
 
@@ -24,11 +24,11 @@ public class CarteiraService {
 		carteira.validateProportion();
 		return this.carteiraRepository.save(carteira);
 	}
-	
+
 	public void delete(Carteira carteira) {
 		this.carteiraRepository.delete(carteira);
 	}
-	
+
 	public Carteira findOrFail(Long id) {
 		return this.carteiraRepository.findById(id).orElseThrow(
 				() -> new EntidadeNaoEncontradaException(String.format("Carteira De Código %d Não Encontrada", id)));

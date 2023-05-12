@@ -15,7 +15,7 @@ public class ClasseAtivoService {
 
 	@Autowired
 	private ClasseAtivoRepository classeAtivoRepository;
-	
+
 	public ClasseAtivo store(ClasseAtivo classeAtivo) {
 		Optional<ClasseAtivo> optional = this.classeAtivoRepository.findByDescricao(classeAtivo.getDescricao());
 		if(optional.isPresent()) {
@@ -23,7 +23,7 @@ public class ClasseAtivoService {
 		}
 		return this.classeAtivoRepository.save(classeAtivo);
 	}
-	
+
 	public ClasseAtivo findOrFail(Long id)  {
 		return this.classeAtivoRepository.findById(id)
 				.orElseThrow(() -> new EntidadeNaoEncontradaException(String.format("Classe de ativo de código %d não encontrada", id)));

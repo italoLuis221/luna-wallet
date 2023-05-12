@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum ProblemType {
-	
+
 	PARAMETRO_INVALIDO("Parametro inválido", "/parametro-invalido"),
 	MENSAGEM_ILEGIVEL("Mensagem ilegível", "/mensagem-ilegivel"),
 	RECURSO_NAO_ENCONTRADO("Recurso não encontrado", "/recurso-nao-encontrado"),
@@ -14,11 +14,11 @@ public enum ProblemType {
 	DADOS_INCORRETOS("Dados incorretos", "/dados-incorretos"),
 	PROPORCAO_DA_CARTEIRA_INCORRETA("Proporção da carteira está Incorreta", "/proporcao-da-carteira-incorreta"),
 	ENTIDADE_DUPLICADA("Entidade duplica", "/entidade-duplicada");
-	
+
 
 	private String title;
 	private String uri;
-	
+
 	ProblemType(String title, String path) {
 		this.title = title;
 		this.uri = "https://lunawallet.com" + path;

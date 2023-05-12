@@ -24,20 +24,20 @@ public class MovimentacaoController {
 
 	@Autowired
 	private MovimentacaoRepository movimentacaoRepository;
-	
+
 	@Autowired
 	private MovimentacaoService movimentacaoService;
-	
+
 	public List<Movimentacao> findAll() {
 		return this.movimentacaoRepository.findAll();
 	}
-	
+
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Movimentacao store(@RequestBody Movimentacao movimentacao) {
 		return this.movimentacaoService.store(movimentacao);
 	}
-	
+
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public Movimentacao update(@RequestBody Movimentacao movimentacao,
@@ -46,12 +46,12 @@ public class MovimentacaoController {
 		BeanUtils.copyProperties(movimentacao, movimentacaoAtual);
 		return this.movimentacaoService.store(movimentacaoAtual);
 	}
-	
+
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
 		Movimentacao movimentacao = this.movimentacaoService.findOrFail(id);
 		this.movimentacaoService.delete(movimentacao);
 	}
-	
+
 }

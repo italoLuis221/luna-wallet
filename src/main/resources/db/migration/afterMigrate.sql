@@ -7,7 +7,7 @@ delete from classe_ativo;
 
 alter table carteira auto_increment = 1;
 
-insert into usuario (id, cpf, data_nascimento, email, nome, senha) values (1,'11209031493', '1997-02-10', 'italo@gmail.com', 'italo', '1234556');
+insert into usuario (id, cpf, data_nascimento, email, nome, senha) values (1,'11209031493', '1997-02-10', 'italo@gmail.com', 'italo', '$2a$04$hDLckCIL91Bgm/1ZSDmmZuvYNX2qwIaNiV0CjczTC9yPiPxb1sYSS');
 insert into usuario (id, cpf, data_nascimento, email, nome, senha) values (2,'11263285632', '1994-03-16', 'vivi@gmail.com', 'vivi', '123');
 
 insert into carteira (nome, data_criacao, renda_fixa, renda_variavel, usuario_id) values ('Dividendos', '2022-10-30', '30', '70', 1);

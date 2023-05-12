@@ -7,5 +7,5 @@ public class EntidadeEmUsoException extends NegocioException{
 	public EntidadeEmUsoException(String message) {
 		super(message);
 	}
-	
+
 }

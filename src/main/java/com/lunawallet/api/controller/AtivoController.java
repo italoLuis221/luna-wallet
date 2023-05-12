@@ -2,7 +2,7 @@ package com.lunawallet.api.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,32 +23,32 @@ import com.lunawallet.domain.service.AtivoService;
 @RestController
 @RequestMapping("/ativo")
 public class AtivoController {
-	
+
 	@Autowired
 	private AtivoRepository ativoRepository;
 
 	@Autowired
 	private AtivoService ativoServico;
-	
-	
+
+
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
 	public List<Ativo> findAll() {
 		return this.ativoRepository.findAll();
 	}
-	
+
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Ativo store(@RequestBody @Valid Ativo ativo) {
 		return this.ativoServico.store(ativo);
 	}
-	
+
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public Ativo update(@RequestBody @Valid Ativo ativo, @PathVariable Long id) {
 		return this.ativoServico.store(ativo);
 	}
-	
+
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {

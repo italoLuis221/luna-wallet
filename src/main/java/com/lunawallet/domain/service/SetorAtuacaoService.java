@@ -15,7 +15,7 @@ public class SetorAtuacaoService {
 
 	@Autowired
 	public SetorAtuacaoRepository setorAtuacaoRepository;
-	
+
 	public SetorAtuacao store(SetorAtuacao setorAtuacao) {
 		Optional<SetorAtuacao> optionalSetorAtuacao = this.setorAtuacaoRepository
 				.findBySetorAndSubSetorAndSegmento(setorAtuacao.getSetor(), setorAtuacao.getSubSetor(), setorAtuacao.getSegmento());
@@ -24,11 +24,11 @@ public class SetorAtuacaoService {
 		}
 		return this.setorAtuacaoRepository.save(setorAtuacao);
 	}
-	
+
 	public void delete(SetorAtuacao setorAtuacao) {
 		this.setorAtuacaoRepository.delete(setorAtuacao);
 	}
-	
+
 	public SetorAtuacao findOrFail(Long id) {
 		return this.setorAtuacaoRepository.findById(id)
 				.orElseThrow(() -> new EntidadeNaoEncontradaException(String.format("Setor de Atuação de código %d não encontrado", id)));

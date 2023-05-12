@@ -2,7 +2,7 @@ package com.lunawallet.api.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,41 +24,41 @@ import com.lunawallet.domain.service.CarteiraService;
 @RestController
 @RequestMapping("/carteiras")
 public class CarteiraController {
-	
+
 	@Autowired
 	private CarteiraRepository carteiraRepository;
-	
+
 	@Autowired
 	private CarteiraService carteiraService;
-	
+
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
 	public List<Carteira> findAll() {
 		return this.carteiraRepository.findAll();
 	}
-	
+
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Carteira store(@RequestBody @Valid Carteira carteira) {
 		return this.carteiraService.store(carteira);
 	}
-	
+
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public Carteira update(@RequestBody @Valid Carteira carteira,
 			@PathVariable() Long id) {
-		
+
 		Carteira carteiraAtual = this.carteiraService.findOrFail(id);
 		BeanUtils.copyProperties(carteira, carteiraAtual, "id", "dataCriacao", "usuario");
 		return this.carteiraService.store(carteiraAtual);
 	}
-	
+
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
 		Carteira carteira = this.carteiraService.findOrFail(id);
 		this.carteiraService.delete(carteira);
 	}
-	
+
 
 }

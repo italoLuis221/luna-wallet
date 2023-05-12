@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.4</version>
+		<version>3.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lunawallet</groupId>
@@ -15,6 +15,7 @@
 	<description>API Carteira de Investimentos</description>
 	<properties>
 		<java.version>17</java.version>
+		<springauthserver.version>1.0.0</springauthserver.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -67,6 +68,16 @@
 		  <groupId>org.apache.commons</groupId>
 		  <artifactId>commons-lang3</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-authorization-server</artifactId>
+			<version>${springauthserver.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
