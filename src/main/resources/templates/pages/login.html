@@ -7,24 +7,39 @@
 		<title>Login</title>
 	</head>
 	<style type="text/css">
-	
-		#divLogotipo {
+
+		.logotipo {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 25vh;
 			border: 1px solid black;
-			
 		}
 		
-		#divFormLogin {
+		.login {
+			width: 90%;
+			height: 65vh;
+			margin: 5vh auto;
 			border: 1px solid pink;
+		}
+		
+		.login__header{
 			
+			border: orange solid 1px;
+			height: 15%
 		}
 	</style>
 	<body>
-		<div id="divLogotipo">
-			<img height="500" width="500" th:src="@{/images/logotipo.png}">
+		<div class="logotipo">
+			<img th:src="@{/images/logotipo.png}" height="250" width="250">
 		</div>
 		
-		<div id="divFormLogin">
-			Login
+		<div class="login">
+			<header class="login__header">
+				Login
+			</header>
 		</div>
+		
 	</body>
 </html>
